@@ -13,7 +13,7 @@ import (
 	"strconv"
 )
 
-const DefaultAlphabet string = "xcS4F6h89aUbidefI7jkyunopqrsgCYE5GHTKLMtARXz"
+const DefaultAlphabet string = "xcS4F6h89aUbideAI7tkynuopqrXCgTE5GBKHLMjfRsz"
 
 var primes []int = []int{2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43}
 var sepsIndices []int = []int{0, 4, 8, 12}
