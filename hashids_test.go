@@ -46,6 +46,36 @@ func TestSalt(t *testing.T) {
 	assertEqual(t, hash, "K6nCz")
 }
 
+func TestZero(t *testing.T) {
+	hid := New()
+	hid.Salt = "_5Cj"
+	hid.MinLength = 6
+
+	hash, err := hid.Encrypt([]int{0})
+	assertError(t, err)
+	assertEqual(t, hash, "Ac4xcG")
+}
+
+func TestZeroAsFirstArrayElement(t *testing.T) {
+	hid := New()
+	hid.Salt = "_5Cj"
+	hid.MinLength = 6
+
+	hash, err := hid.Encrypt([]int{0, 1, 2, 3})
+	assertError(t, err)
+	assertEqual(t, hash, "6xsKI7FX")
+}
+
+func TestZeroAsSecondArrayElement(t *testing.T) {
+	hid := New()
+	hid.Salt = "_5Cj"
+	hid.MinLength = 6
+
+	hash, err := hid.Encrypt([]int{1, 0, 2, 3})
+	assertError(t, err)
+	assertEqual(t, hash, "5df8f8S8")
+}
+
 func TestEncryptDecrypt(t *testing.T) {
 	hid := New()
 	hid.MinLength = 30

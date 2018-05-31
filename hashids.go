@@ -228,6 +228,10 @@ func splitRunes(input, seps []rune) [][]rune {
 
 func hash(input int, alphabet []rune) []rune {
 	result := make([]rune, 0)
+	if input == 0 {
+		r := alphabet[0]
+		result = append(result, r)
+	}
 	for ; input > 0; input /= len(alphabet) {
 		r := alphabet[input%len(alphabet)]
 		result = append(result, r)
